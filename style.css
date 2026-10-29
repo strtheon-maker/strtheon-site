@@ -1,34 +1,8 @@
 /*
   Strtheon Athletics site. Values follow the Might design spec
   (repfeed/docs/design/DESIGN.md and tokens.json).
-
-  Fonts: PP Neue Montreal for text, Anton standing in for Druk Condensed.
-  Neue Montreal loads from fonts/ only once web-licensed .woff2 files are
-  added there (the free personal-use files don't allow website use).
-  Until then the page falls back to Inter.
+  Fonts: Inter for text, Anton standing in for Druk Condensed.
 */
-
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: local("PP Neue Montreal"), local("PPNeueMontreal-Regular"),
-       url("fonts/PPNeueMontreal-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: local("PP Neue Montreal Medium"), local("PPNeueMontreal-Medium"),
-       url("fonts/PPNeueMontreal-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: local("PP Neue Montreal Semibold"), local("PPNeueMontreal-Semibold"),
-       url("fonts/PPNeueMontreal-Semibold.woff2") format("woff2");
-  font-weight: 600;
-  font-display: swap;
-}
 
 :root {
   /* Palette */
@@ -42,7 +16,7 @@
   --warm-ash: #baadab;
 
   /* Type */
-  --font-text: "PP Neue Montreal", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Druk Condensed Super", "Anton", "Impact", sans-serif;
 
   /* Spacing (4pt grid) */
@@ -159,9 +133,8 @@ section > .display { font-size: clamp(40px, 7vw, 64px); margin-bottom: 32px; }
   line-height: 0.9;
   text-transform: uppercase;
   letter-spacing: 0.005em;
-  margin: 0 0 4px;
+  margin: 0 0 20px;
 }
-.app-card .sub { color: var(--warm-ash); margin: 0 0 20px; }
 .app-card p { margin: 0 0 16px; }
 .chip {
   display: inline-block;
@@ -194,16 +167,6 @@ section > .display { font-size: clamp(40px, 7vw, 64px); margin-bottom: 32px; }
 }
 .steps strong { display: block; font-weight: 600; }
 .steps span.t { color: var(--warm-ash); font-size: 15px; line-height: 1.4; }
-
-/* Values */
-.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.value {
-  background: var(--dark-cocoa);
-  border-radius: 8px;
-  padding: 24px 20px;
-}
-.value h4 { margin: 0 0 8px; font-size: 17px; font-weight: 600; line-height: 1.2; }
-.value p { margin: 0; color: var(--warm-ash); font-size: 15px; line-height: 1.4; }
 
 /* Contact */
 .contact { display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end; justify-content: space-between; }
@@ -255,6 +218,5 @@ section > .display { font-size: clamp(40px, 7vw, 64px); margin-bottom: 32px; }
   :root { --section-gap: 72px; }
   .hero { padding-top: 56px; padding-bottom: 80px; }
   .app-card { grid-template-columns: 1fr; padding: 24px 20px; }
-  .values { grid-template-columns: 1fr; }
   .nav a { margin-left: 16px; }
 }
