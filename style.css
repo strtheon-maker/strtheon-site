@@ -127,13 +127,11 @@ section > .display { font-size: clamp(40px, 7vw, 64px); margin-bottom: 32px; }
   padding: 40px;
 }
 .app-card h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 0.005em;
-  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  margin: 0 0 12px;
 }
 .app-card p { margin: 0 0 16px; }
 .chip {
