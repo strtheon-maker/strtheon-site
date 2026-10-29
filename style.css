@@ -1,38 +1,260 @@
-/* Colors from the Might palette (repfeed/docs/design/tokens.json) */
+/*
+  Strtheon Athletics site. Values follow the Might design spec
+  (repfeed/docs/design/DESIGN.md and tokens.json).
+
+  Fonts: PP Neue Montreal for text, Anton standing in for Druk Condensed.
+  Neue Montreal loads from fonts/ only once web-licensed .woff2 files are
+  added there (the free personal-use files don't allow website use).
+  Until then the page falls back to Inter.
+*/
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: local("PP Neue Montreal"), local("PPNeueMontreal-Regular"),
+       url("fonts/PPNeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: local("PP Neue Montreal Medium"), local("PPNeueMontreal-Medium"),
+       url("fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: local("PP Neue Montreal Semibold"), local("PPNeueMontreal-Semibold"),
+       url("fonts/PPNeueMontreal-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
 :root {
-  --canvas: #190501;     /* obsidian-ember */
-  --surface: #340a01;    /* dark-cocoa */
-  --border: #631303;     /* molten-core */
-  --accent: #fa5838;     /* flare-orange */
-  --muted: #fcac9c;      /* warm-blush */
-  --text: #fff3ee;
+  /* Palette */
+  --obsidian-ember: #190501;
+  --dark-cocoa: #340a01;
+  --molten-core: #631303;
+  --signal-red: #951c04;
+  --flare-orange: #fa5838;
+  --warm-blush: #fcac9c;
+  --linen: #f7f6ff;
+  --warm-ash: #baadab;
+
+  /* Type */
+  --font-text: "PP Neue Montreal", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Druk Condensed Super", "Anton", "Impact", sans-serif;
+
+  /* Spacing (4pt grid) */
+  --margin: 20px;
+  --section-gap: 96px;
 }
 
 * { box-sizing: border-box; }
 
+html { -webkit-text-size-adjust: 100%; }
+
 body {
   margin: 0;
-  background: var(--canvas);
-  color: var(--text);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--obsidian-ember);
+  color: var(--linen);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.022em;
+  -webkit-font-smoothing: antialiased;
 }
 
-.wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--flare-orange); text-underline-offset: 3px; }
 
-header { padding-top: 28px; }
-.brand { color: var(--text); font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--margin); }
 
-main { padding: 48px 20px 32px; }
-.hero { margin-bottom: 56px; }
-h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.15; margin: 0 0 16px; }
-h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 40px 0 12px; }
-h3 { margin: 0 0 8px; font-size: 22px; }
-.lede { color: var(--muted); font-size: 19px; margin: 0; }
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.brand {
+  color: var(--linen);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand span { color: var(--warm-ash); font-weight: 400; }
+.nav a {
+  color: var(--warm-ash);
+  font-size: 15px;
+  text-decoration: none;
+  margin-left: 24px;
+}
+.nav a:hover { color: var(--linen); }
 
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
-.card p { margin: 0 0 12px; }
-.tag { color: var(--accent); font-weight: 600; margin: 0 !important; }
+/* Eyebrow + display heading */
+.eyebrow {
+  display: block;
+  color: var(--flare-orange);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
 
-a { color: var(--accent); }
+/* Hero: embers on obsidian */
+.hero {
+  position: relative;
+  padding-top: 96px;
+  padding-bottom: 112px;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 48% at 72% 52%, rgba(250, 88, 56, 0.24), rgba(99, 19, 3, 0.32) 40%, transparent 75%);
+  pointer-events: none;
+}
+.hero > * { position: relative; }
+.hero .display { font-size: clamp(64px, 14vw, 168px); }
+.hero .display em { font-style: normal; color: var(--flare-orange); }
+.hero .lede {
+  max-width: 520px;
+  margin: 28px 0 0;
+  color: var(--warm-ash);
+  font-size: 19px;
+  line-height: 1.4;
+}
 
-footer { border-top: 1px solid var(--border); padding-top: 16px; padding-bottom: 32px; color: var(--muted); font-size: 14px; }
+/* Sections */
+section.wrap { padding-top: var(--section-gap); }
+section > .display { font-size: clamp(40px, 7vw, 64px); margin-bottom: 32px; }
+
+/* App card */
+.app-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--dark-cocoa);
+  border: 1px solid var(--signal-red);
+  border-radius: 8px;
+  padding: 40px;
+}
+.app-card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  margin: 0 0 4px;
+}
+.app-card .sub { color: var(--warm-ash); margin: 0 0 20px; }
+.app-card p { margin: 0 0 16px; }
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--obsidian-ember);
+  color: var(--flare-orange);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Three-step strip inside the card */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.steps li {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 16px 20px;
+  background: var(--obsidian-ember);
+  border-radius: 8px;
+}
+.steps .num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 0.9;
+  color: var(--flare-orange);
+  min-width: 24px;
+}
+.steps strong { display: block; font-weight: 600; }
+.steps span.t { color: var(--warm-ash); font-size: 15px; line-height: 1.4; }
+
+/* Values */
+.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.value {
+  background: var(--dark-cocoa);
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+.value h4 { margin: 0 0 8px; font-size: 17px; font-weight: 600; line-height: 1.2; }
+.value p { margin: 0; color: var(--warm-ash); font-size: 15px; line-height: 1.4; }
+
+/* Contact */
+.contact { display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end; justify-content: space-between; }
+.contact address { font-style: normal; color: var(--warm-ash); line-height: 1.5; }
+.contact address strong { color: var(--linen); font-weight: 500; }
+
+/* Glow button (DESIGN.md: Dark Cocoa fill, inset Molten Core glow, Flare Orange label) */
+.btn-glow {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 14px;
+  background: var(--dark-cocoa);
+  box-shadow: inset 0 0 20px var(--molten-core);
+  color: var(--flare-orange);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background 150ms;
+}
+.btn-glow:hover { background: var(--molten-core); }
+
+/* Prose pages (privacy) */
+.prose { max-width: 640px; padding-top: 64px; }
+.prose .display { font-size: clamp(56px, 10vw, 96px); margin-bottom: 16px; }
+.prose h2 { font-size: 17px; font-weight: 600; margin: 40px 0 8px; }
+.prose p { color: var(--warm-ash); line-height: 1.5; margin: 0 0 12px; }
+.prose .updated { color: var(--warm-ash); font-size: 13px; }
+
+/* Footer */
+.wrap.site-footer {
+  margin-top: var(--section-gap);
+  border-top: 1px solid var(--molten-core);
+  padding-top: 24px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  color: var(--warm-ash);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.site-footer a { color: var(--warm-ash); }
+
+@media (max-width: 760px) {
+  :root { --section-gap: 72px; }
+  .hero { padding-top: 56px; padding-bottom: 80px; }
+  .app-card { grid-template-columns: 1fr; padding: 24px 20px; }
+  .values { grid-template-columns: 1fr; }
+  .nav a { margin-left: 16px; }
+}

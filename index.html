@@ -3,39 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Strtheon Inc.</title>
-  <meta name="description" content="Strtheon Inc. is a software company in British Columbia, Canada, that makes apps for iPhone.">
+  <title>Strtheon Athletics Inc.</title>
+  <meta name="description" content="Strtheon Athletics Inc. is a software company in British Columbia, Canada, that makes fitness apps for iPhone.">
+  <meta name="theme-color" content="#190501">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="wrap">
-    <a class="brand" href="/">Strtheon Inc.</a>
+  <header class="wrap site-header">
+    <a class="brand" href="/">Strtheon <span>Athletics</span></a>
+    <nav class="nav">
+      <a href="#app">App</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>We build iPhone apps that help people keep promises to themselves.</h1>
-      <p class="lede">Strtheon Inc. is an independent software company incorporated in British Columbia, Canada.</p>
-    </section>
+  <main>
+    <div class="wrap hero">
+      <span class="eyebrow">Strtheon Athletics Inc. · British Columbia, Canada</span>
+      <h1 class="display">Train first.<br><em>Scroll later.</em></h1>
+      <p class="lede">We're an independent software company building iPhone apps that turn workouts into a habit you keep.</p>
+    </div>
 
-    <section>
-      <h2>Our app</h2>
-      <div class="card">
-        <h3>Might: Fitness &amp; Willpower</h3>
-        <p>Might locks your most distracting apps on the days you plan to work out, and unlocks them once your workout is done. Earn your feed.</p>
-        <p class="tag">Coming soon to the App Store for iPhone</p>
+    <section id="app" class="wrap">
+      <span class="eyebrow">Our app</span>
+      <h2 class="display">Might</h2>
+      <div class="app-card">
+        <div>
+          <h3>Earn your feed</h3>
+          <p class="sub">Might: Fitness &amp; Willpower</p>
+          <p>Pick the apps that pull you away from training. On your workout days, Might shields them until your workout is verified by your own heart rate.</p>
+          <span class="chip">Coming soon to the App Store</span>
+        </div>
+        <ol class="steps">
+          <li><span class="num">1</span><div><strong>Plan</strong><span class="t">Set the days and times you train.</span></div></li>
+          <li><span class="num">2</span><div><strong>Train</strong><span class="t">Your chosen apps stay shielded during the window.</span></div></li>
+          <li><span class="num">3</span><div><strong>Verify</strong><span class="t">A heart-rate check-in proves the effort and opens your apps.</span></div></li>
+        </ol>
       </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:hello@strtheon.com">hello@strtheon.com</a></p>
-      <p>Strtheon Inc.<br>British Columbia, Canada</p>
+    <section class="wrap">
+      <span class="eyebrow">How we build</span>
+      <h2 class="display">What we stand for</h2>
+      <div class="values">
+        <div class="value">
+          <h4>Effort you can prove</h4>
+          <p>Progress is measured, not self-reported.</p>
+        </div>
+        <div class="value">
+          <h4>Private by default</h4>
+          <p>Heart-rate readings stay on your iPhone.</p>
+        </div>
+        <div class="value">
+          <h4>Honest, not shaming</h4>
+          <p>Missed days are stated plainly. Then you go again.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h2 class="display">Get in touch</h2>
+      <div class="contact">
+        <address>
+          <strong>Strtheon Athletics Inc.</strong><br>
+          British Columbia, Canada<br>
+          <a href="mailto:info@strtheon.com">info@strtheon.com</a>
+        </address>
+        <a class="btn-glow" href="mailto:info@strtheon.com">Email us</a>
+      </div>
     </section>
   </main>
 
-  <footer class="wrap">
-    <p>&copy; 2026 Strtheon Inc. &middot; <a href="privacy.html">Privacy</a></p>
+  <footer class="wrap site-footer">
+    <span>&copy; 2026 Strtheon Athletics Inc. All rights reserved.</span>
+    <a href="privacy.html">Privacy</a>
   </footer>
 </body>
 </html>
